@@ -1,16 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/images/logo-chef.jpg'
+import profile from '../assets/images/profile.png'
 import {
   BoltIcon,
   Bars3BottomRightIcon,
   XMarkIcon,
 } from '@heroicons/react/24/solid'
+import { AuthContext } from '../components/Auth/AuthProvider';
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const {user, logOut} = useContext(AuthContext)
+  const handleLogOut =()=>{
+    logOut()
+    .then()
+    .catch((error)=> {
+        console.error(error)
+    })
+}
+
   return (
-    <div className='bg-gray-100 px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+    <div className='bg-slate-950 px-4 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 '>
     <div className='relative flex items-center justify-between py-2'>
       {/* Logo Section */}
       <Link to='/' className='inline-flex items-center'>
@@ -47,14 +58,27 @@ const Nav = () => {
             About us
           </NavLink>
         </li>
-        <li>
+        {
+          user ? 
+          <div><p onClick={handleLogOut} className='active1'>Logout</p>    
+         </div>
+          // (<p onClick={handleLogOut} className='active'>Logout</p>  <img src="" alt="" />)
+          :
+          (<li>
           <NavLink
-            to='/about'
-            className={({ isActive }) => (isActive ? 'active' : 'default')}
+            to='/login'
+            className={({ isActive }) => (isActive ? 'active1' : 'default')}
           >
            Log In
           </NavLink>
-        </li>
+        </li>)
+        } 
+       
+       {
+        user && 
+       
+         <img className='h-6 w-6 rounded-full hover:cursor-pointer' src={profile} alt="" /> 
+       }
       </ul>
       {/* Mobile Navbar Section */}
       <div className='lg:hidden lg:mt-0'>

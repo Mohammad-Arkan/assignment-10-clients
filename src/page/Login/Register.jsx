@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../components/Auth/AuthProvider';
 import { useState } from 'react';
 import './Login.css'
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const {user, createUser} = useContext(AuthContext)
@@ -50,13 +51,26 @@ const Register = () => {
           setSuccess("User login Successful")
           form.reset()
 
-		form.reset()
+          updateUserData(result.user)
+
          })
          .catch((error) =>{
             console.log(error.message)
          })
 
    }
+// update user 
+const updateUserData = (user, name) => {
+  updateProfile(user, {
+      displayName:name
+  })
+  .then(() =>{
+      console.log('Username update')
+  })
+  .catch((error)=>{
+      setError(error.message)
+  })
+}
 
     return (
         <div className="hero min-h-screen bg-orange-200">
