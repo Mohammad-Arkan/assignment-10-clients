@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo-0.png";
 
 const useNav = () => {
   //navbar scroll when active state
@@ -32,7 +32,7 @@ const useNav = () => {
         </span>
       );
     } else {
-      setNavbarLogo(<img className="h-10" src={logo} alt="" />);
+      setNavbarLogo(<img className="h-16 rounded"  src={logo} alt="" />);
     }
   };
 

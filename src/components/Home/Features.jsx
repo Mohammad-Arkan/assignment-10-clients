@@ -1,5 +1,5 @@
 import demo from "../../assets/images/demo3.PNG";
-
+import './Features.css'
 const features = [
   {
     title: "User Friendly",
