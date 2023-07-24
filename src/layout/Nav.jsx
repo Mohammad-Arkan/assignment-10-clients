@@ -3,7 +3,6 @@ import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/images/logo-chef.jpg'
 import profile from '../assets/images/profile.png'
 import {
-  BoltIcon,
   Bars3BottomRightIcon,
   XMarkIcon,
 } from '@heroicons/react/24/solid'
@@ -23,10 +22,8 @@ const Nav = () => {
   return (
     <div className='bg-slate-950 px-4 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 '>
     <div className='relative flex items-center justify-between py-2'>
-      {/* Logo Section */}
       <Link to='/' className='inline-flex items-center'>
-        <img className='w-20 h-20 rounded' src={logo} alt="" />
-        {/* <BoltIcon className='h-6 w-6 text-blue-500' /> */}
+        <img className='w-20 h-20 rounded' src={logo} alt="" />       
         <span className='ml-2 text-xl font-bold tracking-wide text-white'>
           Cox&apos;s Restaurant
         </span>
@@ -58,20 +55,20 @@ const Nav = () => {
             About us
           </NavLink>
         </li>
+        <li className='flex justify-center items-center gap-4'>
         {
           user ? 
-          <div><p onClick={handleLogOut} className='active1'>Logout</p>    
-         </div>
-          // (<p onClick={handleLogOut} className='active'>Logout</p>  <img src="" alt="" />)
+          <p onClick={handleLogOut} className='active1'>Logout</p>    
+             
           :
-          (<li>
+          (
           <NavLink
             to='/login'
             className={({ isActive }) => (isActive ? 'active1' : 'default')}
           >
            Log In
           </NavLink>
-        </li>)
+        )
         } 
        
        {
@@ -79,6 +76,8 @@ const Nav = () => {
        
          <img className='h-6 w-6 rounded-full hover:cursor-pointer' src={profile} alt="" /> 
        }
+        </li>
+      
       </ul>
       {/* Mobile Navbar Section */}
       <div className='lg:hidden lg:mt-0'>
@@ -91,17 +90,17 @@ const Nav = () => {
           <Bars3BottomRightIcon className='w-5 text-gray-600' />
         </button>
         {isMenuOpen && (
-          <div className='absolute top-0 left-0 w-full z-10'>
+          <div className='absolute top-0 left-0 w-full z-10 text-center'>
             <div className='p-5 bg-white border rounded shadow-sm'>
               {/* Logo & Button section */}
               <div className='flex items-center justify-between mb-4'>
                 <div>
-                  <Link to='/' className='inline-flex items-center'>
-                    <BoltIcon className='h-6 w-6 text-blue-500' />
-                    <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-                      nextPage
-                    </span>
-                  </Link>
+                <Link to='/' className='inline-flex items-center'>
+                <img className='w-20 h-20 rounded' src={logo} alt="" />       
+                <span className='ml-2 text-xl font-bold tracking-wide text-white'>
+                  Cox&apos;s Restaurant
+                </span>
+              </Link>
                 </div>
                 {/* Dropdown menu close button */}
                 <div>
@@ -115,29 +114,51 @@ const Nav = () => {
                 </div>
               </div>
               {/* Mobile Nav Items Section */}
-              <nav>
-                <ul className='space-y-4'>
+              <nav >
+                <ul className='mobile-nav-items'>
                   <li>
-                    <Link to='/' className='default'>
+                    <Link to='/' className='mobile-nav'>
                       Home
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to='/books'
-                      className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+                      to='/blogs'
+                      className='mobile-nav'
                     >
-                      Books
+                      blogs
                     </Link>
                   </li>
                   <li>
                     <Link
                       to='/about'
-                      className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+                      className='mobile-nav'
                     >
                       About Us
                     </Link>
                   </li>
+                  <li className='flex justify-center items-center gap-4'>
+        {
+          user ? 
+          <p onClick={handleLogOut} className='mobile-nav'>Logout</p>    
+             
+          :
+          (
+          <NavLink
+            to='/login'
+            className={({ isActive }) => (isActive ? 'mobile-nav' : 'mobile-nav')}
+          >
+           Log In
+          </NavLink>
+        )
+        } 
+       
+       {/* {
+        user && ''
+       
+         <img className='h-6 w-6 rounded-full hover:cursor-pointer' src={profile} alt="" /> 
+       } */}
+        </li>
                 </ul>
               </nav>
             </div>

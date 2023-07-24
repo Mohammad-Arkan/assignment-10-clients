@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .my-container{
+ /* .my-container{
   @apply px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20
-}
-
+} */
+/* 
 .btn{
   @apply inline-flex items-center h-12 px-6 mb-3 font-medium text-white transition duration-200 rounded shadow-md  md:mb-0 bg-blue-400 hover:bg-blue-700
-}
-
-.badge{
-  @apply inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-yellow-400
 } */
+
+/* .badge{
+  @apply inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-yellow-400
+}  */
 
 .active{
   @apply font-medium text-xl tracking-wide text-orange-700 transition-colors duration-200 hover:text-orange-400 
@@ -24,7 +24,16 @@
 .default{
   @apply font-medium text-xl tracking-wide text-white transition-colors duration-200 hover:text-orange-400 hover:underline decoration-1
 }
+.mobile-nav{
+  @apply font-medium text-xl tracking-wide text-orange-700 transition-colors duration-200 text-center 
+}
+.mobile-nav-items{
+  @apply pt-10 pb-40
+}
 
+.mobile-nav-items li{
+@apply mt-4
+}
 @layer base {
   form {
     width: 400px;
@@ -33,7 +42,7 @@
   }
 
   button {
-    @apply block mt-5 border border-blue-500 rounded-lg px-5 py-2 hover:bg-blue-500 hover:text-white transition-all duration-500;
+    @apply block border border-blue-500 rounded-lg px-5 py-2 hover:bg-blue-500 hover:text-white transition-all duration-500;
   }
 }
 
