@@ -6,7 +6,11 @@ const Meals = ({meal}) => {
     return (
         <div className='meal-container'>
             <img src={meal_img} alt="" />
-            <p>{meal_name}</p>
+           <div className='flex mt-6 mb-3 items-center justify-between'>
+            <h3 className='text-2xl font-bold '>{meal_name}</h3>
+            <p className='text-orange-600 text-xl font-bold'>{price} $</p>
+           </div>
+           <p className='text-left'>{description}</p>
         </div>
     );
 };
