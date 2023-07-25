@@ -1,13 +1,14 @@
-import Features from "./Features";
+
 import Footer from "./Footer";
 import Header from "./Header";
 import "./Home.css";
+import Popular from "./Popular/Popular";
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <Features />
+   <Popular></Popular>
       <Footer />
     </div>
   );

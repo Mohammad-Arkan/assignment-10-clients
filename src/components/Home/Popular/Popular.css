@@ -1,0 +1,13 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+  }
+  .line {
+    width: 50px;
+    min-height: 2px;
+    padding: 0 1px;
+    background-color: black;
+  }
