@@ -20,7 +20,7 @@ const Nav = () => {
 }
 
   return (
-    <div className='bg-slate-950 px-4 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 '>
+    <div className='bg-slate-950 px-4 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-12 '>
     <div className='relative flex items-center justify-between py-2'>
       <Link to='/' className='inline-flex items-center'>
         <img className='w-20 h-20 rounded' src={logo} alt="" />       
